@@ -143,15 +143,6 @@ const Menu: React.FC<NavProps> = ({
   return (
     <Wrapper>
       <StyledNav isPushed={isPushed} showMenu={showMenu} isMobile={isMobile}>
-        {isMobile &&
-          <Logo
-            isMobile={isMobile}
-            isPushed={isPushed}
-            togglePush={() => setIsPushed((prevState: boolean) => !prevState)}
-            isDark={isDark}
-            href={homeLink?.href ?? "/"}
-            isHover={false}
-          />}
         <Flex style={{ alignItems: 'center', gap: '10px' }}>
           {!isMobile &&
             // <StyledLink target="_blank" as="a" href={href} aria-label="Robust home page">
