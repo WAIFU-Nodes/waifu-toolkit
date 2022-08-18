@@ -22,7 +22,7 @@ const connectors: Config[] = [
   {
     title: "Trust Wallet",
     icon: TrustWallet,
-    connectorId: ConnectorNames.Injected,
+    connectorId: ConnectorNames.WalletConnect,
   },
   {
     title: "Binance Chain",
