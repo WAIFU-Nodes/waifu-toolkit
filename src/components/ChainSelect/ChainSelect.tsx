@@ -31,6 +31,7 @@ export interface SvgProps extends SVGAttributes<HTMLOrSVGElement>, SpaceProps {
 }
 
 export interface ChainProps {
+  disabled: boolean;
   chainId?: number;
   otherChainId?: number;
   handleChangeChain?: (chainId: number) => void;
@@ -108,7 +109,7 @@ export const FantomIcon: React.FC<SvgProps> = (props) => {
   )
 }
 
-const ChainSelect = ({ chainId, otherChainId, handleChangeChain }: ChainProps) => {
+const ChainSelect = ({ disabled, chainId, otherChainId, handleChangeChain }: ChainProps) => {
 
   const [chain, setChain] = useState(chainId)
 
@@ -125,6 +126,7 @@ const ChainSelect = ({ chainId, otherChainId, handleChangeChain }: ChainProps) =
 
   return (
     <Dropdown position="bottom"
+      disabled={disabled}
       target={<MyButton style={{
         marginRight: '8px',
         padding: '5px 4px',

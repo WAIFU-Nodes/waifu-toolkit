@@ -149,7 +149,7 @@ const Menu: React.FC<NavProps> = ({
             <PaladinIcon />
             // </StyledLink>
           }
-          <ChainSelect chainId={chainId} />
+          <ChainSelect disabled={!chainId} chainId={chainId} />
           <UserBlock account={account} login={login} logout={logout} isMobile={isMobile} isPushed={isPushed} />
           {isMobile &&
             <MenuButton aria-label="Toggle menu" onClick={() => setIsPushed(true)}>

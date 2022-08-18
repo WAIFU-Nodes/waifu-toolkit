@@ -8,6 +8,7 @@ interface PositionProps {
 }
 
 interface DropdownProps extends PositionProps {
+  disabled: boolean;
   target: React.ReactElement;
 }
 
@@ -40,16 +41,18 @@ const DropdownContent = styled.div<{ position: Position }>`
   border-radius: 20;
 `;
 
-const Container = styled.div`
+const Container = styled.div<{ disabled: boolean }>`
   position: relative;
   &:hover ${DropdownContent}, &:focus-within ${DropdownContent} {
     display: flex;
   }
+  pointer-events: ${({ disabled }) => disabled ? 'none' : 'auto'};
+  cursor: ${({ disabled }) => disabled ? 'not-allowed' : 'auto'};
 `;
 
-const Dropdown: React.FC<DropdownProps> = ({ target, position = "bottom", children }) => {
+const Dropdown: React.FC<DropdownProps> = ({ disabled, target, position = "bottom", children }) => {
   return (
-    <Container>
+    <Container disabled={disabled}>
       {target}
       <DropdownContent position={position}>{children}</DropdownContent>
     </Container>
